@@ -461,6 +461,8 @@ int main(int argc, char **argv)
     auto duration = chrono::duration_cast<chrono::milliseconds>(end_time - start_time).count();
 
     cout << "SSSP update completed in " << duration << " ms\n";
+    auto duration_seconds = chrono::duration_cast<chrono::seconds>(end_time - start_time).count();
+    cout << "Duration in seconds: " << duration_seconds << " s\n";
     printStats(sssp.dist);
 
     if (!output_file.empty())
