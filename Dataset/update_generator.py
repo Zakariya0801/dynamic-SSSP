@@ -53,7 +53,7 @@ def generate_updates(vertices, edges, num_updates):
 
     return updates
 
-def write_updates(updates, filename="updates4000.txt"):
+def write_updates(updates, filename="updates-spotify2.txt"):
     with open(filename, 'w') as f:
         for update in updates:
             f.write(update + '\n')
