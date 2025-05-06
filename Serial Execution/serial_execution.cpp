@@ -32,7 +32,7 @@ struct UpdateData
 class Graph
 {
 public:
-    int V, E;
+    long long V, E;
     vector<Edge> edges;
     vector<vector<pair<int, ll>>> adj;
 

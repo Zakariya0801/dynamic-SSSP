@@ -2,14 +2,14 @@ For Serial Execution use these commands
 
 g++ -std=c++11 serial_execution.cpp -o serial_sssp
 
-./serial_sssp ./../Dataset/sample_graph.txt ./../Dataset/updates50.txt 10000 output.txt
+./serial_sssp ./../Dataset/colisten-spotify.txt ./../Dataset/updates-spotify.txt 10000 output.txt
 
 
 For Parallel Execution use these commands
 
-mpicxx -O3 -march=native -funroll-loops -fopenmp -DCL_TARGET_OPENCL_VERSION=200 -o sssp main.cpp graph.cpp utils.cpp sssp.cpp opencl_utils.cpp -I. -L/usr/local/lib -lOpenCL -lmetis
+mpicxx -O3 -march=native -funroll-loops -fopenmp -DCL_TARGET_OPENCL_VERSION=200 -o sssp Solution.cpp opencl_utils.cpp -I. -L/usr/local/lib -lOpenCL -lmetis
 
 export OMP_NUM_THREADS=4
 export OMP_PROC_BIND=spread
 export OMP_PLACES=cores
-mpirun --bind-to core -np 4 ./sssp ./../Dataset/sample_graph.txt ./../Dataset/sample_updates.txt 10000 output.txt --openmp --opencl
+mpirun --bind-to core -np 4 ./sssp ./../Dataset/colisten-spotify.txt ./../Dataset/updates-spotify.txt 10000 output.txt --openmp --opencl
